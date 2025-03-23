@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tradutor Literário - Inglês para Português</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #ffd1f7;
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      width: 90%;
+      max-width: 700px;
+      padding: 20px;
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff66cc44;
+      text-align: center;
+    }
+    h1 {
+      color: #ff66cc;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      color: #f8aee0;
+      font-size: 1em;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    .dev {
+      color: #888;
+      font-size: 0.85em;
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      background-color: #2a2a2a;
+      color: #ffe3f3;
+      border: 1px solid #ff66cc33;
+      border-radius: 8px;
+      resize: none;
+      font-size: 1em;
+      margin-bottom: 12px;
+    }
+    button {
+      background-color: #ff66cc;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1em;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background-color: #e055b8;
+      transform: scale(1.05);
+    }
+    .resultado {
+      margin-top: 20px;
+      background-color: #2d2d2d;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #ff66cc33;
+      text-align: left;
+      font-style: italic;
+    }
+    .recomendacoes {
+      margin-top: 20px;
+      color: #ffb3e6;
+      font-size: 0.95em;
+    }
+    .recomendacoes span {
+      background-color: #444;
+      border-radius: 6px;
+      padding: 4px 8px;
+      margin: 0 4px;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .recomendacoes span:hover {
+      background-color: #ff66cc33;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tradutor Literário</h1>
+    <p class="subtitle">Transformando palavras em poesia — do inglês ao português</p>
+    <p class="dev">Desenvolvido com 💻 e 💖 por Dev Jaine Silva</p>
+    <textarea id="inputText" placeholder="Digite seu texto em inglês..."></textarea>
+    <button onclick="traduzirLiterariamente()">Traduzir</button>
+    <div id="resultado" class="resultado"></div>
+    <div class="recomendacoes">
+      Sugestões poéticas: <span onclick="inserirPalavra('melancholy')">melancholy</span>
+      <span onclick="inserirPalavra('whisper')">whisper</span>
+      <span onclick="inserirPalavra('solitude')">solitude</span>
+      <span onclick="inserirPalavra('dawn')">dawn</span>
+    </div>
+  </div>
+
+  <script>
+    async function traduzirLiterariamente() {
+      const texto = document.getElementById("inputText").value;
+      const resultado = document.getElementById("resultado");
+      resultado.innerHTML = "Traduzindo com alma...";
+
+      const resposta = await fetch("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(texto) + "&langpair=en|pt");
+      const data = await resposta.json();
+
+      let traducao = data.responseData.translatedText;
+
+      traducao = traducao
+        .replace(/\b(Eu sou)\b/gi, "Sou aquele que")
+        .replace(/\b(você)\b/gi, "tu")
+        .replace(/\b(está)\b/gi, "encontra-te")
+        .replace(/\b(agora)\b/gi, "neste instante")
+        .replace(/\b(tristeza)\b/gi, "melancolia serena")
+        .replace(/\b(silêncio)\b/gi, "sussurro da alma")
+        .replace(/\b(mundo)\b/gi, "universo de possibilidades");
+
+      resultado.innerText = traducao + "\n\n✨ Palavras foram adaptadas para soar com coerência e poesia.";
+    }
+
+    function inserirPalavra(palavra) {
+      const textarea = document.getElementById("inputText");
+      textarea.value += (textarea.value.trim().length > 0 ? ' ' : '') + palavra;
+      textarea.focus();
+    }
+  </script>
+</body>
+</html>
