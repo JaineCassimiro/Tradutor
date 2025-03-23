@@ -17,20 +17,11 @@ Melhorar responsividade 📱
 
 Comentários úteis para quem ler o código ✍️
 
-README com explicação + gif (se quiser, posso gerar)
+![screenshot-1742769991509](https://github.com/user-attachments/assets/b6c650fd-3f9d-41e0-85bc-e93487e4e6da)
 
-❓Próximo passo:
-Quer que eu já gere todos esses arquivos e envie para você baixar/organizar, ou prefere que eu estruture direto em um template para você clonar no GitHub?
+![screenshot-1742769526087](https://github.com/user-attachments/assets/fe25d04c-17a4-4e5d-83bb-170dfbdf03d7)
 
-E deseja manter o nome "Tradutor Literário" ou dar um novo nome poético, como:
-
-"Eco das Palavras"
-
-"Verso Traduzido"
-
-"Entre Línguas e Sonhos"
-
-Seu comando, minha desenvolvedora literária ✨💬
+![screenshot-1742769432455](https://github.com/user-attachments/assets/484ac2c3-f786-4a3a-adc4-b0ed255037dd)
 
 Original URL: [https://codepen.io/Jaine-Silva/pen/YPzvrxK](https://codepen.io/Jaine-Silva/pen/YPzvrxK).
 
